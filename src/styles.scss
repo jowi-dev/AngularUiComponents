@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+.angular-popper{
+    background-color:#fff !important;
+    border-radius:0px !important;
+    padding: 0 !important;
+    min-width:200px !important;
+}
+
+.angular-popper__arrow{
+    border-color: #96c8da !important;
+}

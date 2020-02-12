@@ -1,0 +1,44 @@
+.dropdown{
+    font-family: 'Rubik', 'sans-serif';
+    border: 1px solid #DEDEDE;
+    padding: 10px;
+    min-width:200px;
+    cursor: pointer;
+    display:flex;
+    justify-content: space-between;
+}
+
+.icon{
+    color:#96c8da;
+    transition-property: color rotate;
+    transition-timing-function: ease-in-out;
+    transition-duration: 250ms;
+}
+
+.close{
+    transform: rotate(45deg);
+    color: #9f3a38;
+}
+
+.icon--green{
+    color: #00b5ad;
+}
+
+.option{
+    height:1.25rem;
+    padding:8px 10px;
+    white-space: nowrap;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:first-child){
+        border-top:1px solid #fafafa;
+    }
+
+    &:hover{
+        background-color: #96c8da;
+        color: white
+    }
+}
