@@ -27,7 +27,6 @@ export class DropdownComponent implements OnInit {
   }
 
   selectOption(event){
-    console.log(event);
     this.chosen = event.target.dataset.value;
   }
 
