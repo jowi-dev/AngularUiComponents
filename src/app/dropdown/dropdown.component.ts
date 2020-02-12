@@ -10,6 +10,8 @@ export class DropdownComponent implements OnInit {
   @Input() chosen: any = "Pick an option.."
   @Input() dropped: boolean = false;
 
+  rotation : number = 0;
+
 
   @Input() options: any[];
 
@@ -20,10 +22,13 @@ export class DropdownComponent implements OnInit {
 
   toggleDrop(){
     this.dropped = !this.dropped;
+    this.rotation += 45;
   }
 
   closeDrop(){
-    this.dropped = false;
+    if(this.dropped){
+      this.toggleDrop();
+    }
   }
 
   selectOption(event){
