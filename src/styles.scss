@@ -4,7 +4,9 @@
     background-color:#fff !important;
     border-radius:0px !important;
     padding: 0 !important;
-    min-width:200px !important;
+    min-width:220px !important;
+    max-height:20rem !important;
+    overflow-y: scroll;
 }
 
 .angular-popper__arrow{

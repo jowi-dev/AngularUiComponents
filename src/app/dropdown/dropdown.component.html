@@ -9,13 +9,15 @@
         </div>
         <fa name='plus' class="icon {{this.dropped ? 'close' : ''}}"></fa>
     </div>
-    <div content class='options'>
-        <div *ngFor="let option of options"
-            [attr.data-value]="option"
-            (click)="selectOption($event)"
-            class='option'>
-            {{option}}
-            <fa *ngIf="isChosen(option)" name="check" class='icon--green'></fa>
+    <div content>
+        <div class='options'>
+            <div *ngFor="let option of options"
+                [attr.data-value]="option"
+                (click)="selectOption($event)"
+                class='option'>
+                {{option}}
+                <fa *ngIf="isChosen(option)" name="check" class='icon--green'></fa>
+            </div>
         </div>
     </div>
 </angular-popper>

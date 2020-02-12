@@ -23,7 +23,7 @@ const createList = (length = 7) => {
     }
     return list;
 }
-let staticList = createList();
+let staticList = createList(20);
 
 
 
