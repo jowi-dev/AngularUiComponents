@@ -2,16 +2,17 @@
     [show]="dropped"
     target=".dropdown">
     <div class='dropdown'
-        (click)="toggleDrop()"
-        (clickOutside)="closeDrop()">
+        (click)="toggleDrop(); filterInput.value=''">
         <div>
             {{this.chosen}}
         </div>
         <fa name='plus' class="icon {{this.dropped ? 'close' : ''}}"></fa>
     </div>
-    <div content>
+    <div class='content' content (clickOutside)="checkCloseDrop($event); filterInput.value = ''">
+    <input #filterInput type='text' (keyup)="filterOptions($event)" placeholder="Filter.." class='filter-input'/>
+        <fa name="filter" class="icon--red pointer" (click)="clearFilter(); filterInput.value=''"></fa>
         <div class='options'>
-            <div *ngFor="let option of options"
+            <div *ngFor="let option of filteredOptions"
                 [attr.data-value]="option"
                 (click)="selectOption($event)"
                 class='option'>

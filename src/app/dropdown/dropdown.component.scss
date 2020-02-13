@@ -20,6 +20,13 @@
     color: #9f3a38;
 }
 
+.icon--red{
+    color: #9f3a38;
+}
+.pointer{
+    cursor: pointer;
+}
+
 .icon--green{
     color: #00b5ad;
 }
@@ -40,5 +47,23 @@
     &:hover{
         background-color: #96c8da;
         color: white
+    }
+}
+.filter-input{
+    padding:5px;
+    width:auto;
+    margin-top:2px;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+    border-bottom-color: #DEDEDE;
+    border-style: solid;
+    padding-left:10px;
+    font-weight: 700;
+    font-size: 0.75rem;
+
+    &:focus{
+        border-bottom-color:#96c8da;
+        outline:none;
     }
 }

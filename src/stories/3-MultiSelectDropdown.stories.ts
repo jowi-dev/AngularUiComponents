@@ -6,7 +6,7 @@ const faker = require('faker');
 
 
 export default{
-    title: "Dropdown",
+    title: "MultiSelectDropdown",
     decorators: [
         moduleMetadata({
             imports: [DropdownModule]
@@ -32,10 +32,10 @@ let staticList = createList(20);
 let compOps = (styles: string, template: string = null) => {
     const temp = `
             <div class='full-view wrapper'>
-                <dropdown
+                <multi-dropdown
                     [options]="this.options"
                     [dropped]="this.dropped"
-                ></dropdown>
+                ></multi-dropdown>
             </div>
         `;
     return {

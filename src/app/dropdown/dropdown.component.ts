@@ -1,35 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AbstractDropdown } from '../abstract/dropdown.abstract';
 
 
 @Component({
-  selector: 'app-dropdown',
+  selector: 'dropdown',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss']
 })
-export class DropdownComponent implements OnInit {
-  @Input() chosen: any = "Pick an option.."
-  @Input() dropped: boolean = false;
-
-  rotation : number = 0;
-
-
-  @Input() options: any[];
-
-  constructor() { }
-
+export class DropdownComponent extends AbstractDropdown{
+  filteredOptions: any[] ;
   ngOnInit() {
+    this.filteredOptions = this.options;
   }
 
-  toggleDrop(){
-    this.dropped = !this.dropped;
-    this.rotation += 45;
-  }
 
-  closeDrop(){
-    if(this.dropped){
-      this.toggleDrop();
-    }
-  }
 
   selectOption(event){
     this.chosen = event.target.dataset.value;
@@ -39,6 +23,18 @@ export class DropdownComponent implements OnInit {
     return option == this.chosen;
   }
 
+  filterOptions(event){
+    this.filteredOptions = this.options.filter(option => option.toLowerCase().includes(event.target.value.toLowerCase()));
+  }
+
+  closeDrop(){
+    this.clearFilter();
+    super.closeDrop();
+  }
+
+  clearFilter(){
+    this.filteredOptions = this.options;
+  }
 
 }
 
