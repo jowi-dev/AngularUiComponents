@@ -11,17 +11,17 @@ body::-webkit-scrollbar-button{
     max-height:20rem !important;
     overflow-y: scroll;
     &::-webkit-scrollbar{
-        background-color:#DEDEDE;
         width:0.5rem;
-
     }
     &::-webkit-scrollbar-track-piece{
-
         background-color:#DEDEDE;
+        &:hover{
+            background-color:lighten(#96c8da, 15%);
+        }
     }
-    &::-webkit-scrollbar-button{
-        display:none;
-    }
+//    &::-webkit-scrollbar-button{
+//        display:none;
+//    }
     &::-webkit-scrollbar-thumb{
         background-color: darken($color: #DEDEDE, $amount: 10%);
         &:hover{
