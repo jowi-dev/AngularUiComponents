@@ -2,19 +2,33 @@
     [show]="dropped"
     target=".dropdown">
     <div class='dropdown'
-        (click)="toggleDrop(); filterInput.value=''">
-        <div>
+        (click)="toggleDrop($event); filterInput.value=''">
+        <div *ngIf="!isMultiSelect && hasChoices">
             {{this.chosen}}
+        </div>
+        <div *ngIf="isMultiSelect && hasChoices" class='choices'>
+            <span *ngFor="let choice of this.chosen" class='option--chosen'>
+                {{choice}}
+                <fa name="times" (click)="removeChoice(choice)"></fa>
+            </span>
+        </div>
+        <div *ngIf="!hasChoices">
+            {{placeholder}}
         </div>
         <fa name='plus' class="icon {{this.dropped ? 'close' : ''}}"></fa>
     </div>
     <div class='content' content (clickOutside)="checkCloseDrop($event); filterInput.value = ''">
-    <input #filterInput type='text' (keyup)="filterOptions($event)" placeholder="Filter.." class='filter-input'/>
-        <fa name="filter" class="icon--red pointer" (click)="clearFilter(); filterInput.value=''"></fa>
+        <div>
+            <input #filterInput type='text' (keyup)="filterOptions(filterInput.value)" placeholder="Filter.." class='filter-input'/>
+            <fa name="filter" class="icon--red pointer" (click)="clearFilter(); filterInput.value=''"></fa>
+        </div>
+        <div *ngIf="isMultiSelect" class='multiselect-actions'>
+            <fa name="check" class="icon--green pointer" (click)="chooseAll()"></fa>
+            <fa name="trash" class="icon--red pointer" (click)="removeAll()"></fa>
+        </div>
         <div class='options'>
             <div *ngFor="let option of filteredOptions"
-                [attr.data-value]="option"
-                (click)="selectOption($event)"
+                (click)="selectOption(option)"
                 class='option'>
                 {{option}}
                 <fa *ngIf="isChosen(option)" name="check" class='icon--green'></fa>

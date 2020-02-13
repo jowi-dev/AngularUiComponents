@@ -24,6 +24,7 @@ const createList = (length = 7) => {
     return list;
 }
 let staticList = createList(20);
+let chosen = staticList.slice(3,12);
 
 
 
@@ -33,6 +34,7 @@ let compOps = (styles: string, template: string = null) => {
     const temp = `
             <div class='full-view wrapper'>
                 <multi-dropdown
+                    [chosen]="this.chosen"
                     [options]="this.options"
                     [dropped]="this.dropped"
                 ></multi-dropdown>
@@ -53,6 +55,7 @@ let compOps = (styles: string, template: string = null) => {
 let props = () => ({
     options: staticList,
     dropped: boolean('dropped',true),
+    chosen
 });
 
 let defaultStory = (component) => ({

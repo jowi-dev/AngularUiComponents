@@ -18,6 +18,7 @@ import { MultiDropdownComponent } from '../multi-dropdown/multi-dropdown.compone
   ],
   exports:[
     DropdownComponent,
+    MultiDropdownComponent
   ]
 
 })
