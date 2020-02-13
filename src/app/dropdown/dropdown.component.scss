@@ -13,17 +13,21 @@ $green: #00b5ad;
     display:flex;
     justify-content: space-between;
 }
-
+.center{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 .icon{
     color:#96c8da;
     transition-property: color rotate;
     transition-timing-function: ease-in-out;
     transition-duration: 250ms;
-    transform-origin: top right;
+    transform-origin: center center;
 }
 
 .close{
-    transform: rotate(45deg);
+    transform: rotate(225deg);
     color: $red;
 }
 

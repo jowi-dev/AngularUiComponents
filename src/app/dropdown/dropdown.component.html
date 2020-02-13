@@ -15,7 +15,7 @@
         <div *ngIf="!hasChoices">
             {{placeholder}}
         </div>
-        <fa name='plus' class="icon {{this.dropped ? 'close' : ''}}"></fa>
+        <fa name='plus' class="icon center {{this.dropped ? 'close' : ''}}"></fa>
     </div>
     <div class='content' content (clickOutside)="checkCloseDrop($event); filterInput.value = ''">
         <div>

@@ -15,8 +15,7 @@ export class MultiDropdownComponent extends AbstractDropdown<string>{
     return !!this.chosen.length;
   }
   toggleDrop(event){
-    console.log(event);
-    if(this.dropped && event.path.some(item => item.classList.includes("option--chosen"))){
+    if(event.path.some(item => item.className && item.className.includes("option--chosen"))){
       return;
     }
     else{
