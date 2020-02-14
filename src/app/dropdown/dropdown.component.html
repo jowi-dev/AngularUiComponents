@@ -27,11 +27,34 @@
             <fa name="trash" class="icon--red pointer" (click)="removeAll()"></fa>
         </div>
         <div class='options'>
-            <div *ngFor="let option of filteredOptions"
-                (click)="selectOption(option)"
-                class='option'>
-                {{option}}
-                <fa *ngIf="isChosen(option)" name="check" class='icon--green'></fa>
+            <div *ngIf="!hasSubMenus">
+                <div *ngFor="let option of filteredOptions"
+                    (click)="selectOption(option)"
+                    class='option'>
+                    {{option}}
+                    <fa *ngIf="isChosen(option)" name="check" class='icon--green'></fa>
+                </div>
+            </div>
+            <div *ngIf="hasSubMenus">
+                <div *ngFor="let option of filteredOptions" >
+                    <div *ngIf="!hasSubOptions(option)" class='option' (click)="selectOption(option)">
+                        {{option}}
+                        <fa *ngIf="isChosen(option)" name="check" class='icon--green'></fa>
+                    </div>
+                    <div *ngIf="hasSubOptions(option)">
+                        <div class='sub-menu option' (click)="toggleViewSubMenu(option)">
+                            {{getsubOption(option).category}}
+                            <fa   name="caret-down" class="icon {{viewing(option) ? 'backside' : ''}}"></fa>
+                            <fa *ngIf="isChosen(option)" name='check' class='icon--green'></fa>
+                        </div>
+                        <div *ngFor="let option of getsubOption(option).options" class='sub-options {{viewing(option) ? "expand" : ""}}'>
+                            <li class='option'>
+                                {{option}}
+                                <fa *ngIf="isChosen(option)" name='check' class='icon--green'></fa>
+                            </li>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

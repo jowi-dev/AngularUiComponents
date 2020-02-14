@@ -19,7 +19,7 @@ $green: #00b5ad;
     align-items: center;
 }
 .icon{
-    color:#96c8da;
+    color:$blue;
     transition-property: color rotate;
     transition-timing-function: ease-in-out;
     transition-duration: 250ms;
@@ -57,7 +57,10 @@ $green: #00b5ad;
 
     &:hover{
         background-color: $blue;
-        color: white
+        color: white;
+        fa{
+            color:white;
+        }
     }
 }
 .choices{
@@ -96,3 +99,8 @@ $green: #00b5ad;
     justify-content: space-evenly;
     padding: 2px 0px;
 }
+.backside{
+    transform: rotate(180deg)
+}
+
+

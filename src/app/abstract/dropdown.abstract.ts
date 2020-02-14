@@ -6,10 +6,11 @@ export abstract class AbstractDropdown<T> implements OnInit{
     abstract isChosen(option : T) : boolean;
     abstract get hasChoices(): boolean;
     abstract filterOptions(filterValue:string):  void;
-    abstract chosen;
+    abstract chosen: T | T[];
 
     @Input() options: T[];
     @Input() isMultiSelect: boolean = false; //Default to false
+    @Input() hasSubMenus: boolean = false //Default to false
     @Input() dropped: boolean = false; //Dev purposes only
     @Input() placeholder: string = "Choose an option.." //Incase we need specific case defaults (Choose account sets.. etc)
 
